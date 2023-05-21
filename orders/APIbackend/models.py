@@ -119,7 +119,9 @@ class Shop(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=40, verbose_name='Название')
-    shops = models.ManyToManyField(Shop, verbose_name='Магазины', related_name='categories', blank=True)
+    shop_s = models.ManyToManyField(Shop, verbose_name='Магазины', related_name='categorie', blank=True)
+    shops = models.ForeignKey(Shop, verbose_name='Магазины', related_name='categories', blank=True,
+                                 on_delete=models.CASCADE, default='my_default_value')
 
 
     class Meta:
@@ -184,7 +186,7 @@ class Parameter(models.Model):
 
 class ProductParameter(models.Model):
     product_info = models.ForeignKey(ProductInfo, verbose_name='Информация о продукте',
-                                     related_name='product_parameters', blank=True,
+                                     related_name='product_param_info', blank=True,
                                      on_delete=models.CASCADE)
     parameter = models.ForeignKey(Parameter, verbose_name='Параметр', related_name='product_parameters', blank=True,
                                   on_delete=models.CASCADE)
@@ -242,7 +244,7 @@ class OrderItem(models.Model):
     order = models.ForeignKey(Order, verbose_name='Заказ', related_name='ordered_items', blank=True,
                               on_delete=models.CASCADE)
 
-    product_info = models.ForeignKey(ProductInfo, verbose_name='Информация о продукте', related_name='ordered_items',
+    product_info = models.ForeignKey(ProductInfo, verbose_name='Информация о продукте', related_name='ordered_items_info',
                                      blank=True,
                                      on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(verbose_name='Количество')
