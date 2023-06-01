@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'APIbackend',
     'drf_spectacular',
+    #'ResetPasswordToken',
 ]
 
 MIDDLEWARE = [

@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from orders.APIbackend import views
+from APIbackend import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/', include('backend.urls', namespace='backend')),
+    path('api/v1/', include('APIbackend.urls', namespace='backend')),
 ]

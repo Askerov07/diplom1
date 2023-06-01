@@ -18,8 +18,8 @@ from django.urls import path, include
 from django_rest_passwordreset.views import reset_password_request_token, reset_password_confirm
 from rest_framework.routers import DefaultRouter
 
-from orders.APIbackend import views
-from orders.APIbackend.views import PartnerUpdate, RegisterAccount, ConfirmAccount, LoginAccount, AccountDetails, CategoryView, \
+from APIbackend import views
+from APIbackend.views import PartnerUpdate, RegisterAccount, ConfirmAccount, LoginAccount, AccountDetails, CategoryView, \
     ShopView, ProductInfoViewSet, BasketView, PartnerState, PartnerOrders, ContactView, OrderView
 from drf_spectacular.views import SpectacularAPIView
 

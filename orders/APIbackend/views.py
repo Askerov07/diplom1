@@ -1,28 +1,32 @@
 from distutils.util import strtobool
+
+# from orders.APIbackend.tasks import new_user_registered, new_order
+
 from django.contrib.auth import authenticate
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
+from django.core.validators import URLValidator
 from django.db import IntegrityError
 from django.db.models import Q, Sum, F
-
-from rest_framework import viewsets, generics,  status
+from django.http import JsonResponse
+from drf_spectacular.utils import extend_schema
+from requests import get
+from rest_framework import viewsets, generics, status
 from rest_framework.authtoken.models import Token
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.views import APIView
-from django.http import JsonResponse
-from django.core.validators import URLValidator
-from django.core.exceptions import ValidationError
-from requests import get
-from yaml import load as load_yaml, Loader
-from django.contrib.auth.password_validation import validate_password
 from rest_framework.response import Response
+from rest_framework.views import APIView
+from yaml import load as load_yaml, Loader
 
-from orders.APIbackend.models import Shop, Category, Product, ProductInfo, Parameter, ProductParameter, Order, OrderItem, \
+from APIbackend.models import Shop, Category, Product, ProductInfo, Parameter, ProductParameter, Order, \
+    OrderItem, \
     Contact, ConfirmEmailToken, User
-from orders.APIbackend.serializers import UserSerializer, CategorySerializer, ShopSerializer, ProductInfoSerializer, \
+from APIbackend.serializers import UserSerializer, CategorySerializer, ShopSerializer, ProductInfoSerializer, \
     OrderItemSerializer, OrderSerializer, ContactSerializer
-from orders.APIbackend.tasks import new_user_registered, new_order
 
-from drf_spectacular.utils import extend_schema
+from APIbackend import models
+
 
 
 class RegisterAccount(APIView):
