@@ -24,6 +24,8 @@ from APIbackend.models import Shop, Category, Product, ProductInfo, Parameter, P
     Contact, ConfirmEmailToken, User
 from APIbackend.serializers import UserSerializer, CategorySerializer, ShopSerializer, ProductInfoSerializer, \
     OrderItemSerializer, OrderSerializer, ContactSerializer
+from APIbackend.tasks import new_user_registered, new_order
+
 
 from APIbackend import models
 

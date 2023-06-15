@@ -122,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
@@ -142,3 +142,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'APIbackend.User' #AUTH_USER_MODEL = 'YourAppName.YourClassName' This way we are telling Django to use our custom model instead the default one. https://docs.djangoproject.com/en/2.2/topics/auth/customizing/#substituting-a-custom-user-model
+
